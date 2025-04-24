@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Mackdonald Shiwani</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow-x: hidden;
+            flex-direction: column; /* Add this line to ensure the footer stays at the bottom */
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex: 1;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 25%;
+            background: black;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: flex-start;
+            position: fixed;
+            left: -25%;
+            top: 0;
+            transition: left 0.5s ease-in-out;
+        }
+
+        .sidebar.show {
+            left: 0;
+        }
+
+        /* Name Styling */
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 50px; /* Ensures space from the top */
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Adjusted spacing for menu items */
+        .sidebar nav {
+            width: 100%;
+        }
+
+        /* Highlight active menu item */
+        .sidebar nav ul li a.active {
+            color: orange;
+            background: rgba(255, 165, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -10px; /* Moves menu slightly upwards */
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0; /* Reduces space between tabs */
+            text-align: center;
+            width: 100%;
+        }
+
+        .sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Hover effect for sidebar items and title */
+        .sidebar nav ul li a:hover,
+        .sidebar h2:hover {
+            color: orange;
+            background: rgba(255, 165, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Toggle button */
+        .toggle-btn {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            background: orange;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            z-index: 10;
+        }
+
+        .toggle-btn:hover {
+            background: darkorange;
+        }
+
+        /* Content Section */
+        .content {
+            width: 100%;
+            padding: 40px;
+            display: flex;
+            align-items: flex-start;
+            background: url('pic3.jpg') no-repeat center center/cover;
+            justify-content: flex-start;
+            height: 100%;
+            flex-direction: column;
+            transition: margin-left 0.5s ease-in-out;
+        }
+
+        .sidebar.show ~ .content {
+            margin-left: 25%;
+        }
+
+        /* About Page Header Image */
+        .about-header {
+            width: 100%;
+            height: 33vh;
+            background-image: url('header-image.jpg');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+        }
+
+        /* About page colorful background and text entry animation */
+        .about-page {
+            background: linear-gradient(45deg, #ff6f61, #ffcc00, #3b5998, #8e44ad);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: white;
+            padding: 50px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .about-text {
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            bottom: 0;
+            padding: 10px;
+            width: 100%;
+            margin-top: auto; /* Ensure it sticks to the bottom */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Toggle Button -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>MACKDONALD SHIWANI</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html"class="active">About</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="interest.html">Interests</a></li>
+                    <li><a href="project.html">Project</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <!-- About Page Header Image -->
+            <div class="about-header"></div>
+            <div class="about-page">
+                <div class="about-text">
+                    <h1>About Mackdonald Shiwani</h1>
+                    <p>A final-year Electrical and Electronics Engineering student at Chuka University with a background in applied computer science. My interests lie in data science, AI, and developing strategies for the financial sector, with hands-on experience in circuit analysis and microcontroller programming.</p>
+                    <p>I’m also passionate about software development. I’ve worked on projects involving Raspberry Pi setups, server creation, and mobile payment integration. Currently, I’m a finalist in the Power Learn Project Software Development Scholarship, where I’m looking to deepen my programming skills and contribute to innovative solutions.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('show');
+        }
+    </script>
+
+<footer>
+    <p>Created By Mackdonald Shiwani | © 2025 All Rights Reserved</p>
+</footer>
+</body>
+</html>

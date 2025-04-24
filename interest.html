@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest - Mackdonald Shiwani</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 25%;
+            background: black;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: flex-start;
+            position: fixed;
+            left: -25%;
+            top: 0;
+            transition: left 0.5s ease-in-out;
+        }
+
+        .sidebar.show {
+            left: 0;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -10px;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .sidebar nav ul li a:hover,
+        .sidebar h2:hover {
+            color: orange;
+            background: rgba(255, 165, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Toggle button */
+        .toggle-btn {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            background: orange;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            z-index: 10;
+        }
+
+        .toggle-btn:hover {
+            background: darkorange;
+        }
+
+        /* Content Section */
+        .content {
+            width: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: url('pic1.avif') no-repeat center center/cover;
+            color: white;
+            overflow-y: auto;
+            transition: margin-left 0.5s ease-in-out;
+        }
+
+        .sidebar.show ~ .content {
+            margin-left: 25%;
+        }
+
+        /* Interest Title */
+        .interest-title {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            width: 100%;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .interest-title:hover {
+            transform: scale(1.05);
+            color: white;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: orange;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .interest-box {
+            position: relative;
+            background: #292929;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 45%;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .interest-box:hover {
+            transform: scale(1.05);
+        }
+
+        /* Highlight active menu item */
+        .sidebar nav ul li a.active {
+            color: orange;
+            background: rgba(255, 165, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            bottom: 0;
+            padding: 10px;
+            width: 100%;
+            margin-top: auto; /* Ensure it sticks to the bottom */
+        }
+
+        .left-box {
+            left: 0;
+            text-align: right;
+        }
+
+        .right-box {
+            left: 50%;
+            text-align: left;
+        }
+
+        .interest-box::before {
+            content: '⚡';
+            font-size: 30px;
+            position: absolute;
+            top: 20px;
+            left: -40px;
+            color: orange;
+        }
+
+        .right-box::before {
+            left: auto;
+            right: -40px;
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>MACKDONALD SHIWANI</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="interest.html" class="active">Interest</a></li>
+                    <li><a href="project.html">Project</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <div class="interest-title">My Interests</div>
+            <div class="timeline">
+                <div class="interest-box left-box">
+                    <h3>AI & Data Science</h3>
+                    <p>Passionate about leveraging data to build intelligent systems and derive actionable insights.</p>
+                </div>
+                <div class="interest-box right-box">
+                    <h3>Web Development</h3>
+                    <p>Enthusiastic about creating engaging and functional websites with a focus on user experience.</p>
+                </div>
+                <div class="interest-box left-box">
+                    <h3>Innovations</h3>
+                    <p>Focused on developing creative solutions and innovations that drive technological advancement.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

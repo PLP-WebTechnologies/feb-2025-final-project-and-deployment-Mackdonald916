@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Mackdonald Shiwani</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 25%;
+            background: black;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: flex-start;
+            position: fixed;
+            left: -25%;
+            top: 0;
+            transition: left 0.5s ease-in-out;
+        }
+
+        .sidebar.show {
+            left: 0;
+        }
+
+        /* Name Styling */
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 50px; /* Adjusts spacing */
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Adjusted spacing for menu items */
+        .sidebar nav {
+            width: 100%;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -10px; /* Moves menu slightly upwards */
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0; /* Reduces space between tabs */
+            text-align: center;
+            width: 100%;
+        }
+
+        .sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Hover effect */
+        .sidebar nav ul li a:hover,
+        .sidebar h2:hover {
+            color: orange;
+            background: rgba(255, 165, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Toggle button */
+        .toggle-btn {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            background: orange;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            z-index: 10;
+        }
+
+        .toggle-btn:hover {
+            background: darkorange;
+        }
+
+        /* Highlight active menu item */
+        .sidebar nav ul li a.active {
+            color: orange;
+            background: rgba(255, 165, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+        /* Content Section */
+        .content {
+            width: 100%;
+            padding: 40px;
+            display: flex;
+            align-items: flex-start;
+            background: url('pic5.avif') no-repeat center center/cover;
+            justify-content: flex-start;
+            height: 100vh;
+            flex-direction: column;
+            transition: margin-left 0.5s ease-in-out;
+        }
+
+        .sidebar.show ~ .content {
+            margin-left: 25%;
+        }
+
+        /* About Page Header Image */
+        .about-header {
+            width: 100%;
+            height: 33vh;
+            background-image: url('header-image.jpg');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+        }
+
+        /* Education Section */
+        .education-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .education-box {
+            width: 48%;
+            background-color: #d3d3d3;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .education-box h3 {
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .education-box p {
+            font-size: 1.1rem;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .education-box:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .education-box:hover h3,
+        .education-box:hover p {
+            color: white;
+        }
+
+        /* Title Style */
+        .education-title {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            width: 100%;
+            margin-left: 0;
+            display: flex;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover Effect on Title */
+        .education-title:hover {
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Download CV Button */
+        .download-cv {
+            margin-top: 30px;
+            background-color: #ff7f00;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .download-cv:hover {
+            background-color: #ff6600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Toggle Buttons -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>MACKDONALD SHIWANI</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="education.html" class="active">Education</a></li>
+                    <li><a href="interest.html">Interests</a></li>
+                    <li><a href="project.html">Project</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <!-- Education Title -->
+            <div class="education-title">Education</div>
+            <!-- Download CV Button -->
+            <a href="cv.pdf" download class="download-cv">Download CV</a>
+            <!-- Education Section -->
+            <div class="education-section">
+                <div class="education-box">
+                    <h3>Chuka University</h3>
+                    <p>BSc Electrical and Electronics Engineering</p>
+                    <p>2020 - 2025</p>
+                </div>
+                <div class="education-box">
+                    <h3>WorldQuant University</h3>
+                    <p>Data Science</p>
+                    <p>2023 - 2024</p>
+                </div>
+                <div class="education-box">
+                    <h3>WorldQuant University</h3>
+                    <p>AI and Computer Vision</p>
+                    <p>2024 - 2025</p>
+                </div>
+                <div class="education-box">
+                    <h3>Senende Sec School</h3>
+                    <p>KCSE B+</p>
+                    <p>2016 - 2019</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

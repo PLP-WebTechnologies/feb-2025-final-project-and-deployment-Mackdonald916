@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Mackdonald Shiwani</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            zoom: 100%;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            flex: 1; /* Make the container flexible to take up the available space */
+        }
+        .sidebar {
+            width: 25%;
+            background: black;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: space-between;
+            position: relative;
+        }
+        .sidebar h2 {
+            margin-top: 20px;
+        }
+        .sidebar h2 span {
+            color: orange;
+        }
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+        .sidebar nav ul li {
+            margin: 30px 0;
+            text-align: center;
+        }
+        .sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Highlight active menu item */
+        .sidebar nav ul li a.active {
+            color: orange;
+            background: rgba(255, 165, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .sidebar nav ul li a:hover {
+            color: orange;
+            background: rgba(255, 165, 0, 0.2);
+            border-radius: 5px;
+            padding-left: 15px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .social-icons a img {
+            width: 25px;
+        }
+        .content {
+            width: 75%;
+            background: linear-gradient(to bottom, #D2B48C, white);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+            flex-grow: 1; /* Take up remaining space */
+        }
+        .hero .text {
+            max-width: 50%;
+        }
+        .hero h1 span {
+            color: orange;
+        }
+        .btn {
+            display: inline-block;
+            background: orange;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        /* Profile image directly placed on the right side */
+        .image img {
+            position: absolute;
+            right: 0;
+            top: 10%;
+            width: 70%;
+            max-width: 600px;
+            border-radius: 50%;
+        }
+
+        /* Typing effect */
+        .typing {
+            display: inline;
+            border-right: 3px solid transparent;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(30) 1s forwards, blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 13em;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* About page colorful background and text entry animation */
+        .about-page {
+            background: linear-gradient(45deg, #ff6f61, #ffcc00, #3b5998, #8e44ad);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: white;
+            padding: 50px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .about-text {
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Programming Languages Section */
+        .languages-section {
+            background: white;
+            color: black;
+            padding: 2px;
+            text-align: center;
+            width: 40%;
+            border-top: 0px solid #ccc;
+            margin-top: 0px;
+        }
+
+        .languages-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .languages-section ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2rem;
+        }
+
+        .languages-section ul li {
+            margin: 10px 0;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2><span>MACKDONALD</span> SHIWANI</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="interest.html">Interests</a></li>
+                    <li><a href="project.html">Project</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/Mackdonaldshiwans"><img src="facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/sheonemarkdoornulled?igsh=Mm9pcnZlYWZtcmdt"><img src="instagram.jpeg" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/in/mackdonald-shiwani-2b40061b6/"><img src="linkedin.jpeg" alt="LinkedIn"></a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <section class="hero">
+                <div class="text">
+                    <p>Hi There...</p>
+                    <h1>I AM <span class="typing">MACKDONALD SHIWANI</span></h1>
+                    <h2>An Engineer & Software Developer</h2>
+                    <p>A passionate Electrical and Electronics Engineering student at Chuka University with a keen interest in Data Science and Software Development. With hands-on experience in electrical systems, programming, and research, Mackdonald continuously strives to innovate and contribute to cutting-edge technologies.</p>
+                </div>
+                <!-- Profile Image directly placed in the right -->
+                <div class="image">
+                    <img src="profile.png" alt="Profile Picture">
+                </div>
+            </section>
+
+            <!-- Programming Languages Section -->
+            <section class="languages-section">
+                <h2>Programming Languages</h2>
+                <ul>
+                    <li>Python</li>
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>JavaScript</li>
+                    <li>HTML</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Created By Mackdonald Shiwani | © 2025 All Rights Reserved</p>
+    </footer>
+</body>
+</html>
